@@ -1,0 +1,13 @@
+initramfs/
+nfs_dir/
+kernels/
+*.gz
+*.cmd
+*.o
+*.ko
+*.txt
+*.log
+qemu
+src/*
+!src/*.c
+src/*.mod.c
