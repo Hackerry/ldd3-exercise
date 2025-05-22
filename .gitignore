@@ -8,6 +8,9 @@ kernels/
 *.txt
 *.log
 qemu
-src/*
-!src/*.c
-src/*.mod.c
+*.mod.*
+*.mod
+Module.symvers
+modules.order
+examples/
+.vscode/

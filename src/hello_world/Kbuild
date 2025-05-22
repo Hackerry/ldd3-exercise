@@ -1,0 +1,3 @@
+# file Kbuild
+module-objs := hello_world.o
+obj-m := hello_world.o
