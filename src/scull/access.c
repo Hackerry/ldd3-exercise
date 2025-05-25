@@ -285,7 +285,7 @@ static struct scull_dev *scull_c_lookfor_device(dev_t key)
 	memset(lptr, 0, sizeof(struct scull_listitem));
 	lptr->key = key;
 	scull_trim(&(lptr->device)); /* initialize it */
-	// HACKERRY-UPDATE: init_MUTEX is replaced by mutex_init and sema_init
+	// HACKERRY-UPDATE: init_MUTEX is replaced by sema_init
 	sema_init(&(lptr->device.sem), 1);
 	// init_MUTEX(&(lptr->device.sem));
 
@@ -375,7 +375,7 @@ static void scull_access_setup (dev_t devno, struct scull_adev_info *devinfo)
 	/* Initialize the device structure */
 	dev->quantum = scull_quantum;
 	dev->qset = scull_qset;
-	// HACKERRY-UPDATE: init_MUTEX is replaced by mutex_init
+	// HACKERRY-UPDATE: init_MUTEX is replaced by sema_init
 	// init_MUTEX(&dev->sem);
 	sema_init(&(dev->sem), 1);
 

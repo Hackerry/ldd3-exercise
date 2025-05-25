@@ -627,11 +627,11 @@ int scull_init_module(void)
  * major unless directed otherwise at load time.
  */
 	if (scull_major) {
-		// Dynamic allocation of major number
+		// HACKERRY-UPDATE: Use fixed major & minor number
 		dev = MKDEV(scull_major, scull_minor);
 		result = register_chrdev_region(dev, scull_nr_devs, "scull");
 	} else {
-		// Fixed major minor number
+		// HACKERRY-UPDATE: Use dynamic major number
 		result = alloc_chrdev_region(&dev, scull_minor, scull_nr_devs,
 				"scull");
 		scull_major = MAJOR(dev);
@@ -656,7 +656,7 @@ int scull_init_module(void)
 	for (i = 0; i < scull_nr_devs; i++) {
 		scull_devices[i].quantum = scull_quantum;
 		scull_devices[i].qset = scull_qset;
-		// HACKERRY-UPDATE: init_MUTEX is replaced by mutex_init and sema_init
+		// HACKERRY-UPDATE: init_MUTEX is replaced by sema_init
 		// init_MUTEX(&scull_devices[i].sem);
 		sema_init(&(scull_devices[i].sem), 1);
 		scull_setup_cdev(&scull_devices[i], i);

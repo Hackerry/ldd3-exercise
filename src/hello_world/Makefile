@@ -10,3 +10,7 @@ modules:
 .PHONY: clean
 clean:
 	$(MAKE) -C $(KDIR) M=$(PWD) clean
+
+.PHONY: release
+release:
+	cp *.ko ../../initramfs/tmp/
